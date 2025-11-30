@@ -9,11 +9,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-
 Route::get('/dashboard', function () {
     return view('dashboard');
-})
-    ->middleware(['auth', 'verified'])
+})->middleware(['auth', 'verified'])
     ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -23,25 +21,20 @@ Route::middleware('auth')->group(function () {
 });
 
 // CampSite
-Route::get('/submit', [CampSiteController::class, 'create'])->name('submit');
-Route::post('/submit/camp', [CampSiteController::class, 'store'])->name('submit.store');
-Route::get('/camps/{id}', [CampSiteController::class, 'view'])->name('camps');
+Route::prefix('camps')->name('camps.')->group(function () {
+    Route::get('/{id}', [CampSiteController::class, 'view'])->name('index');
+    Route::get('/submit', [CampSiteController::class, 'create'])->name('submit');
+    Route::post('/submit/camp', [CampSiteController::class, 'store'])->name('store');
+});
 
 Route::get('/about', function () {
     return view('about');
 })->name('about');
-
-
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/camps', [CampSiteController::class, 'adminIndex'])->name('admin.camps');
     Route::post('/camps/{id}/approve', [CampSiteController::class, 'approve'])->name('admin.camps.approve');
     Route::post('/camps/{id}/reject', [CampSiteController::class, 'reject'])->name('admin.camps.reject');
 });
-
-
-
-
-
 
 require __DIR__ . '/auth.php';

@@ -8,7 +8,7 @@
     </div>
 
     <div class="card shadow-sm border-0 rounded-3 p-4 mx-auto" style="max-width: 700px;">
-        <form action="{{ route('submit.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('camps.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-3">

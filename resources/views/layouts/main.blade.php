@@ -84,7 +84,7 @@
                     </div>
                 </div> --}}
 
-               <a href="{{ route('submit') }}" class="nav-link text-dark fw-medium">Submit Tempat Camp</a>
+               <a href="{{ route('camps.submit') }}" class="nav-link text-dark fw-medium">Submit Tempat Camp</a>
             </nav>
 
 

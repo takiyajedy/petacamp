@@ -11,7 +11,7 @@ class CampSiteController extends Controller
     public function index()
     {
         $camps = CampSite::where('is_approved', true)->latest()->get();
-        return view('camps.index', compact('camps'));
+        return view('home', compact('camps'));
     }
 
     // Papar borang
@@ -76,7 +76,7 @@ class CampSiteController extends Controller
     public function view($id)
     {
         $camp = CampSite::findOrFail($id);
-        
+
         return view('camps.view', compact('camp'));
     }
 }
