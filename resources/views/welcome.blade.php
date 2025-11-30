@@ -27,19 +27,21 @@
                             <img src="https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=600&q=60"
                                 class="camp-image card-img-top">
                         @endif
-                        <div class="card-body">
+                        <div class="card-body flex flex-column gap-1">
                             <h6 class="fw-semibold mb-1">{{ $camp->name }}</h6>
-                            <p class="text-muted small mb-1">
+                            <span class="text-muted small mb-1">
                                 📍 {{ $camp->state ?? 'Tidak diketahui' }}
-                            </p>
-                            <span class="badge {{ $camp->has_river ? 'bg-success' : 'bg-secondary' }}">
-                                {{ $camp->has_river ? 'Ada Sungai' : 'Tiada Sungai' }}
                             </span>
-                            <span class="badge {{ $camp->has_toilet ? 'bg-info text-dark' : 'bg-light text-dark' }}">
-                                {{ $camp->has_toilet ? 'Ada Tandas' : 'Tiada Tandas' }}
-                            </span>
+                            <div>
+                                <span class="badge {{ $camp->has_river ? 'bg-success' : 'bg-secondary' }}">
+                                    {{ $camp->has_river ? 'Ada Sungai' : 'Tiada Sungai' }}
+                                </span>
+                                <span class="badge {{ $camp->has_toilet ? 'bg-info text-dark' : 'bg-light text-dark' }}">
+                                    {{ $camp->has_toilet ? 'Ada Tandas' : 'Tiada Tandas' }}
+                                </span>
+                            </div> 
                             <div class="mt-3 text-end">
-                                <a href="#" class="btn btn-sm btn-outline-success">Lihat</a>
+                                <a href="/camps/{{ $camp->id }}" class="btn btn-sm btn-outline-success">Lihat</a>
                             </div>
                         </div>
                     </div>

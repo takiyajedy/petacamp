@@ -3,7 +3,7 @@
 @section('content')
 <div class="container py-5">
     <h2>Tambah Tempat Camping</h2>
-    <form action="/camp/store" method="POST" enctype="multipart/form-data">
+    <form action="/submit/camp" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label>Nama Tempat</label>
@@ -33,7 +33,7 @@
         <div class="form-check mb-3">
             <input type="checkbox" name="has_electricity" class="form-check-input"> Ada Elektrik
         </div>
-        <button class="btn btn-primary">Hantar</button>
+        <button type="submit" class="btn btn-primary">Hantar</button>
     </form>
 </div>
 @endsection

@@ -72,4 +72,11 @@ class CampSiteController extends Controller
         $camp->delete(); // atau boleh tukar kepada flag lain
         return back()->with('danger', 'Tempat camping "' . $camp->name . '" telah ditolak ❌');
     }
+
+    public function view($id)
+    {
+        $camp = CampSite::findOrFail($id);
+        
+        return view('camps.view', compact('camp'));
+    }
 }

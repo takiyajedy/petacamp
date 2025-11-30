@@ -24,7 +24,8 @@ Route::middleware('auth')->group(function () {
 
 // CampSite
 Route::get('/submit', [CampSiteController::class, 'create'])->name('submit');
-Route::post('/submit', [CampSiteController::class, 'store'])->name('submit.store');
+Route::post('/submit/camp', [CampSiteController::class, 'store'])->name('submit.store');
+Route::get('/camps/{id}', [CampSiteController::class, 'view'])->name('camps');
 
 Route::get('/about', function () {
     return view('about');

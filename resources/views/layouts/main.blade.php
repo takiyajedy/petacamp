@@ -44,7 +44,7 @@
         }
     </style>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
     {{-- ✅ Navbar kekal di semua page --}}
     <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
@@ -140,7 +140,7 @@
         @yield('content')
     </main>
 
-    <footer class="bg-dark text-light text-center py-3 mt-5">
+    <footer class="bg-dark text-light text-center py-3 mt-auto">
         © {{ date('Y') }} PetaCamp.my — Dibina dengan ❤️ menggunakan Laravel.
     </footer>
 
